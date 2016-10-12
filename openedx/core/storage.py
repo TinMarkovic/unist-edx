@@ -11,7 +11,9 @@ from openedx.core.djangoapps.theming.storage import ComprehensiveThemingAwareMix
 class ProductionStorage(
         PipelineForgivingStorage,
         ComprehensiveThemingAwareMixin,
-        OptimizedFilesMixin,
+#	OptimizedFilesMixin,
+#	Replaced by the below. Probably a performance hit, but works...
+	NonPackagingMixin,
         PipelineMixin,
         CachedFilesMixin,
         StaticFilesStorage
