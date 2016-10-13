@@ -9,29 +9,29 @@ from openedx.core.djangolib.markup import HTML, Text
 
 <div>
 <style>
-        #svgPlots .axis path,
-        #svgPlots .axis line{
-          fill: none;
-          stroke: grey;
-          opacity: 0.2;
-          stroke-dasharray: 2;
-        }
+    #svgPlots .axis path,
+    #svgPlots .axis line{
+      fill: none;
+      stroke: grey;
+      opacity: 0.2;
+      stroke-dasharray: 2;
+    }
 
-        #svgPlots .line{
-          fill: none;
-          stroke: blue;
-          stroke-width: 2px;
-        }
+    #svgPlots .line{
+      fill: none;
+      stroke: blue;
+      stroke-width: 2px;
+    }
 
-        #svgPlots .tick text{
-          font-size: 12px;
-        }
+    #svgPlots .tick text{
+      font-size: 12px;
+    }
 
-        #svgPlots .tick line{
-          stroke: grey;
-          opacity: 0.2;
-          stroke-dasharray: 2;
-        }
+    #svgPlots .tick line{
+      stroke: grey;
+      opacity: 0.2;
+      stroke-dasharray: 2;
+    }
 </style>
 <div id="svgPlots"></div>
 <script>
@@ -198,14 +198,14 @@ from openedx.core.djangolib.markup import HTML, Text
       var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        .tickSize([-height,0])
+        .tickSize(-height,0)
         .tickPadding(10)
         .ticks(numberOfXTicks);
 
       var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
-        .tickSize([-width,0])
+        .tickSize(-width,0)
         .tickPadding(10)
         .ticks(numberOfYTicks);
 
@@ -228,7 +228,7 @@ from openedx.core.djangolib.markup import HTML, Text
         .attr("x", width/2 )
         .attr("y", height + margin.bottom - 10)
         .style("text-anchor", "middle")
-        .text("Pitanje");
+        .text("Pitanje<");
 
       svg.append("text")
         .attr("transform", "rotate(-90)")
@@ -259,20 +259,4 @@ from openedx.core.djangolib.markup import HTML, Text
 
     }
 </script>
-    <!--
-        <p>
-            <em>
-                ${Text(_("For trolly analytics about your course, go to {link_start}{analytics_dashboard_name}{link_end}.")).format(
-                    link_start=HTML('<a href="{dashboard_url}" target="_blank">').format(
-                        dashboard_url=escape_uri_path('{base_url}/courses/{course_id}'.format(
-                            base_url=settings.ANALYTICS_DASHBOARD_URL,
-                            course_id=section_data['course_id'],
-                        ))
-                    ),
-                    analytics_dashboard_name=settings.ANALYTICS_DASHBOARD_NAME,
-                    link_end=HTML('</a>')
-                )}
-            </em>
-        </p>
-    -->
 </div>
