@@ -198,16 +198,14 @@ from openedx.core.djangolib.markup import HTML, Text
       var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        .innerTickSize(-height)
-        .outerTickSize(0)
+        .tickSize([-height,0])
         .tickPadding(10)
         .ticks(numberOfXTicks);
 
       var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
-        .innerTickSize(-width)
-        .outerTickSize(0)
+        .tickSize([-width,0])
         .tickPadding(10)
         .ticks(numberOfYTicks);
 
